@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <div id="app" v-if="count >= 0">
+        
+        <h1 >{{titulo}}</h1>
+        <button v-on:click="enviar()">Contador</button>
+         
+      
+    </div>
+    <script>
+        var vue = new Vue({
+            el: "#app",
+            data:{
+                titulo: "Exercico 11",
+                count : 0,
+            },
+            methods:{
+                enviar(){
+                    if (vue.count >= 4) {
+                        alert("Passou...");
+                    }
+                    var res = vue.count++;  
+                    console.log(res)
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

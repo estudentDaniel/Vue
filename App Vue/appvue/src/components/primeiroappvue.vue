@@ -1,9 +1,20 @@
 <template>
     <div>
-        <h1>Deus é fiel!</h1>
-        <button v-on:click="apresentar">Apresentar</button>
-        <P> Meu nome é: {{nome}} e tenho :{{idade}} de idade </P>
-        <p>{{n}}</p>
+        <h1>Home Student´s</h1>
+        <!-- <div id="Container1">
+            <span>
+                <img src="../assets/aluno.jpg" width="400" height="200">
+            </span>
+        </div>
+        <div v-bind:style="padding = 40">
+            
+                <button>Conheça os planos</button>
+                <button>Padrinho</button>
+                <button>Ao vivo</button>
+                
+          
+        </div>
+        <p></p> -->
     </div>
     
 </template>
@@ -20,9 +31,7 @@ export default{
     },
     methods: {
        
-        apresentar(){
-             const n = this.nome;
-        }
+        
     }
 }
 </script>

@@ -7,7 +7,6 @@ const apps = ({
     methods: {
        
         alerta(){
-            
             alert(this.nome)
             console.log("Esta funcionando")
         }

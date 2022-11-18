@@ -19,7 +19,10 @@
       <Escolha/>
     <hr>
     <Botoes/>
-
+    <hr/>
+    <Contador/>
+    <hr/>
+    <ListString/>
   </div>
    
 
@@ -37,6 +40,8 @@
   import formulario from './components/Portifolio/formApp.vue'
   import Escolha from './components/Portifolio/escolha.vue'
   import Botoes from './components/Portifolio/botoes.vue'
+import Contador from './components/Portifolio/contador.vue'
+import ListString from './components/Portifolio/listString.vue'
 
   export default{
     name: "App",
@@ -49,8 +54,10 @@
     TituloParagrafo,
     soma,
     formulario,
-        Escolha,
-        Botoes
+    Escolha,
+    Botoes,
+    Contador,
+    ListString
 },
   }
 </script>

@@ -23,6 +23,10 @@
     <Contador/>
     <hr/>
     <ListString/>
+    <hr>
+    <h4>Exercicio 13</h4>
+    <DadosJson/>
+    
   </div>
    
 
@@ -40,8 +44,9 @@
   import formulario from './components/Portifolio/formApp.vue'
   import Escolha from './components/Portifolio/escolha.vue'
   import Botoes from './components/Portifolio/botoes.vue'
-import Contador from './components/Portifolio/contador.vue'
-import ListString from './components/Portifolio/listString.vue'
+  import Contador from './components/Portifolio/contador.vue'
+  import ListString from './components/Portifolio/listString.vue'
+  import DadosJson from './components/Portifolio/dadosJson.vue'
 
   export default{
     name: "App",
@@ -57,7 +62,8 @@ import ListString from './components/Portifolio/listString.vue'
     Escolha,
     Botoes,
     Contador,
-    ListString
+    ListString,
+    DadosJson
 },
   }
 </script>

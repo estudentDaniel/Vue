@@ -17,7 +17,7 @@ router.post('/user/signup', AuthController.signup)
 
 //Info USER, rota, private, middleware e  token
 router.get('/user/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado
-router.put('/user/use', AuthController.editAction) //editAction
+router.put('/user/use',AuthMiddel.private, AuthController.editAction) //editAction
 
 //categoria
 router.get('/categoria', AnuncioController.getCategoria)
@@ -30,3 +30,5 @@ router.put('/user/:id', AnuncioController.editAction) //editAction
 router.delete('/user/:id', AnuncioController.delete)
 
 module.exports = router
+
+

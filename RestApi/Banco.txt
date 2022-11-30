@@ -1,0 +1,25 @@
+usuarios
+    id
+    nome
+    email
+    state
+    senha
+    token
+
+estado
+    id
+    nome
+
+categorias
+    id
+    nome
+    titulo
+
+anuncios
+    id 
+    id_user
+    img [ {url, default: true}]
+    categorias
+    preco
+    description
+    data

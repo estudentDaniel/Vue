@@ -14,7 +14,10 @@
                 </label>
             </form>
 
-            <button @click="">Mostar</button>
+            <button @click="moduleInverso">Mostar</button>
+            <span>
+                {{x}}
+            </span>
         </div>
 
 
@@ -40,20 +43,19 @@
                 q: 0,
                 a: 0,
                 m: 0,
-                
+                e:0,
                 z: 0
             }
         },
         methods:{
           
-            moduleInverso (a, m ){
-
+            moduleInverso (){
+                var a;
+                var m;
                 this.calculoPxQ(),
-                this.calculoZ(),
-               
 
                 a = this.relativoPrimo(),
-                m = this.m
+                m = this.calculoZ()
                for(var x=1; x<m; x++){ 
                 if(((a % m) * (x % m) % m) == 1){
                 console.log("Valor modular: "+ x );
@@ -67,6 +69,7 @@
                 var p = this.p;
                 var q = this.q;
                 var n = p * q;
+                console.log(n);
                 return n;
             },
             calculoZ(){
@@ -74,10 +77,12 @@
                 var p = this.p;
                 var q = this.q;
                 var z  = (p - 1) * ( q -1);
+                console.log(z);
                 return z;
             },
             relativoPrimo(){
-                var e = 3;
+                var e = this.e;
+                console.log(e);
                 return e;
             }
 

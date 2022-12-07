@@ -1,0 +1,14 @@
+<h1> Seja bem vindo </h1> 
+<p>  mensagem </p> 
+
+
+
+{{#mostrar}}
+    <p> NOME: {{nome}} idade: {{idade}}</p> 
+{{/mostrar}}
+
+<ul> 
+    {{#alunos}}
+        <li>{{aluno}} -- Nota: {{nota}} </li> 
+    {{/alunos}}
+</ul>

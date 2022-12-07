@@ -1,22 +1,20 @@
 {
-  "name": "appvue",
+  "name": "mepedi",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "backend": "json-server --watch dataBase/db.json"
   },
   "dependencies": {
     "core-js": "^3.8.3",
     "json-server": "^0.17.1",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.0-0"
-    
+    "vue": "^3.2.13"
   },
   "devDependencies": {
-    "@babel/cli": "^7.19.3",
-    "@babel/core": "^7.20.2",
+    "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
@@ -34,8 +32,7 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser",
-      "requireConfigFile": false
+      "parser": "@babel/eslint-parser"
     },
     "rules": {}
   },

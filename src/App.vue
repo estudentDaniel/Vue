@@ -67,6 +67,13 @@
   <button id="btn">Denuncia</button>
   <button id="btn">ajuda</button>
   <button id="btn">informações</button>
+  <p>
+    Telefone(64) 9922-5563
+  </p>
+  <p>
+    email: <a href="">cuidando@idosos.com.br</a>
+  </p>
+  <h4>Cuide do seu proprio futuro amanhã poderá ser voçê.</h4>
 </div>
  
 </template>
@@ -83,14 +90,25 @@ export default {
 </script>
 
 <style>
-#btn{
-  padding: 2px;
+h4{
+  color: white;
+  font-size: 15pt ;
+}
+a{
   margin: 10px;
-  
-  border-radius: 11px  ; 
-  background:rgb(215, 222, 228);
+}
+#btn{
+  text-align: center;
+  padding: 2px;
+  margin-left: 250px;
+  width: 140px;
+  height: 35px;
+  border-radius: 12px  ; 
+  background:rgb(198, 222, 242);
 }
 #barra{
+  
+  padding: 10px;
   background:rgb(20, 124, 228);
   height: 350px;
   border-radius: 11px;

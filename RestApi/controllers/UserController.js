@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const State =  require('../models/estado')
 const User = require('../models/user')
 const auncioads = require('../models/anuncio');
-const { matchedData } = require('express-validator');
+const { validationResult, matchedData } = require('express-validator');
 module.exports = {
     getStates: async (req, res) => {
         let states = await State.find();
@@ -59,9 +59,14 @@ module.exports = {
                 }
             }
             if (data.passwordHash){
-                update.passwordHash = await bcrypt.hash(data.passwordHash, 10);
-                
+                update.passwordHash = await bcrypt.hash(data.passwordHash, 10);   
             }
+
+            //aguarda meu brother  que vou te atualizo
+            await User.findByIdAndUpdate({token: data.token}, {$set: update});
+
+            res.json({erros: 'Deu certo bill'});
+
 
     },
     

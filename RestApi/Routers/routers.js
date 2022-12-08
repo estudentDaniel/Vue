@@ -4,16 +4,17 @@ const AuthController = require('../controllers/AuthController')
 const UserController = require('../controllers/UserController')
 const AnuncioController = require('../controllers/AuncioContrller')
 const AuthMiddel= require('../middleware/middLeware')
+const AuthValidator = require('../validator/validator.js')
 // router.get('/teste', (req, res) =>{
 //     res.json({msg: true})
 // })
 
 //Info estado
-router.get('/states', AuthMiddel.private, UserController.getStates)
+router.get('/states', UserController.getStates)
 
 //login USER
-router.post('/user/signin', AuthController.signin)
-router.post('/user/signup', AuthController.signup)
+router.post('/user/signin', AuthController.signin)//atentica
+router.post('/user/signup',AuthValidator.signup, AuthController.signup)//cria novo
 
 //Info USER, rota, private, middleware e  token
 router.get('/user/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado

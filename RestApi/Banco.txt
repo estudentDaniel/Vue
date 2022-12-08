@@ -1,3 +1,4 @@
+* nao esquce de que o mongo acrescenda o (s) no banco
 usuarios
     id
     nome
@@ -10,7 +11,7 @@ estado
     id
     nome
 
-categorias
+categorias -> #  nao vou usar agora 
     id
     nome
     titulo
@@ -23,3 +24,5 @@ anuncios
     preco
     description
     data
+
+------------------------------------

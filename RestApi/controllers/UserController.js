@@ -4,7 +4,10 @@ module.exports = {
         let states = await State.find();
         res.json({ states });
     },
-    info: async (req, res) => {
+    editAction: async (req, res) => {
         
     },
+    info: async (req, res) => {
+        
+    }
 }

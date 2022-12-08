@@ -5,6 +5,7 @@ const UserController = require('../controllers/UserController')
 const AnuncioController = require('../controllers/AuncioContrller')
 const AuthMiddel= require('../middleware/middLeware')
 const AuthValidator = require('../validator/validator.js')
+const UserValidator = require('../validator/UserValidator')
 // router.get('/teste', (req, res) =>{
 //     res.json({msg: true})
 // })
@@ -18,7 +19,7 @@ router.post('/user/signup',AuthValidator.signup, AuthController.signup)//cria no
 
 //Info USER, rota, private, middleware e  token
 router.get('/user/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado
-router.put('/user/use',AuthMiddel.private, AuthController.editAction) //editAction
+router.put('/user/use',UserValidator.editAction, UserController.editAction) //editAction
 
 //categoria
 router.get('/categoria', AnuncioController.getCategoria)

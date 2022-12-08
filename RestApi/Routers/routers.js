@@ -13,7 +13,7 @@ const AuthValidator = require('../validator/validator.js')
 router.get('/states', UserController.getStates)
 
 //login USER
-router.post('/user/signin', AuthController.signin)//atentica
+router.post('/user/signin',AuthValidator.signin, AuthController.signin)//atentica
 router.post('/user/signup',AuthValidator.signup, AuthController.signup)//cria novo
 
 //Info USER, rota, private, middleware e  token

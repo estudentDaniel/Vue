@@ -27,7 +27,19 @@ module.exports = {
             },
             errorMessage: "Erro no password tamanho nao pode ficar vazia"
         },
-        
-
-    })
+       
+    }),
+    signin: checkSchema({
+        email: {
+            errorMessage: "Erro email"
+        },
+        passwordHash: {
+            notEmpty: true,
+            isLength:{
+                options:{min: 2}
+            },
+            errorMessage: "Erro no password tamanho nao pode ficar vazia"
+        },
+       
+    }),
 }

@@ -10,17 +10,22 @@ module.exports = {
         res.json({ states });
     },
     info: async (req, res) => {
-        //indentificar usuario pelo token
-        let token = req.query.token //buscando pela query por get
-        //encontre um token 
-        const user = await User.findOne(token);
-        const state = await State.findById(user.states) //mostar anuncio
-        //const anuncio = await anuncioads.
-        res.json({
-            name: user.name,
-            email: user.email,
-            states: user.states,
-         })
+
+        let users = await User.find();
+        res.json({ users });
+        const user = await User.findOne({ token: token })
+    //     //indentificar usuario pelo token
+    //     let token = req.query.token //buscando pela query por get
+    //     //encontre um token 
+    //     const user = await User.findOne({ token: token })
+    //    // const user = await User.findOne(token);
+    //     const state = await State.findById(user.state) //mostar anuncio
+    //     //const anuncio = await anuncioads.
+    //     res.json({
+    //         name: user.name,
+    //         email: user.email,
+    //         states: user.states,
+    //      })
 
     },
     editAction: async (req, res) => {

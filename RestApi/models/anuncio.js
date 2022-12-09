@@ -2,14 +2,13 @@ const mongoose = require('mongoose')
 
 const Schema = new mongoose.Schema({
     idUser: String,
-    estado: String,
-    status: String,
+    state: String,
     images: [Object],
     categoria: String,
     preco: String,
     titulo: String,
     descricao: String,
-    visualizacao: Number,
+    views: Number,
     datacreate: Date
 })
 const modelName = 'anuncio';

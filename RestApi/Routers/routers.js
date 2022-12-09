@@ -22,14 +22,14 @@ router.get('/users/use', AuthMiddel.private, UserController.info) // SO acessa q
 router.put('/user/use',UserValidator.editAction, UserController.editAction) //editAction
 
 //categoria
-router.get('/categoria', AnuncioController.getCategoria)
+router.get('/categorias', AnuncioController.getCategoria)
 
 //auncio
 router.post('/anuncio/add', AnuncioController.addAnuncio)
-router.get('/user/list', AnuncioController.getList)
-router.post('/user/item', AnuncioController.getItem)
-router.put('/user/:id', AnuncioController.editAction) //editAction
-router.delete('/user/:id', AnuncioController.delete)
+//router.get('/user/list', AnuncioController.getList)
+//router.post('/user/item', AnuncioController.getItem)
+//router.put('/user/:id', AnuncioController.editAction) //editAction
+//router.delete('/user/:id', AnuncioController.delete)
 
 module.exports = router
 

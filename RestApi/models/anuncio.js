@@ -2,16 +2,16 @@ const mongoose = require('mongoose')
 
 const Schema = new mongoose.Schema({
     idUser: String,
-    state: String,
-    images: [Object],
     categoria: String,
+    dateCreated: Date,
+    titulo: String, 
     preco: String,
-    titulo: String,
     descricao: String,
     views: Number,
-    datacreate: Date
+    images: [Object],
+    
 })
-const modelName = 'anuncio';
+const modelName = 'anuncios';
 
 //criar conexao
 if ( mongoose.connection && mongoose.connection.models[modelName]){

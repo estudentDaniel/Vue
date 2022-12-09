@@ -15,44 +15,37 @@ const addImage = async (buffer) => {
 }
 module.exports = {
     
-     getCategoria: async (req, res) => {
-        let cat = await Categoria?.find()
-        let categoria = [];
-        for (let i in cat) {
-            categoria.push({
-                ...cat[i]._doc,
-                img:` ${process.env.BASE}/assets/${cat[i].slogan}.jpg`.name
-                
-            });
-        }
-        res.json({ categoria});
-    },
+     
     addAnuncio: async (req, res) => {
   
-         let { titulo, preco,  token, categ, descricao, views } = req.body;
+         let { titulo, preco,  token, categ, descricao, views } = req.query;
+
          const user = await User.findOne({ token: token }).exec();
 
        if (!titulo || !descricao) {
-             res.json({ error: 'CAMPO NAO PREENCHIDO' });
+             res.json({ titulo: titulo, preco: preco });
              return;
          }
          if (preco) {
-             preco = price.replace('.', '').replace(',', '.').replace('R$', '');
+             preco = preco.replace('.', '').replace(',', '.').replace('R$', '');
              preco = parseFloat(preco);
          } else {
             preco = 0;
          }
       
-         const neWAuncio = new Anuncios();
-         neWAuncio.idUser = user.id;
-         neWAuncio.Categoria = categ;
-         neWAuncio.dateCreated = Date.now();
-         neWAuncio.titulo = titulo;
-         neWAuncio.preco = preco;
-         neWAuncio.descricao = desc;
-         neWAuncio.views= views;
-         
+        const anuncio = new Anuncio();   
+         anuncio.idUser = user._id;
+         anuncio.Categoria = categ;
+         anuncio.dateCreated = new Date();
+         anuncio.titulo = titulo;
+         anuncio.preco = preco;
+         anuncio.descricao = desc;
+         anuncio.views= 0;
 
+        const info = await neWAuncio.save();
+         res.json({
+             id: info._id
+         });
         // console.log(req.files.img);
         // if (req.files && req.files.img) {
         //     if (req.files.img.length != 0) {
@@ -77,17 +70,20 @@ module.exports = {
         //     }
         // }
 
-         const novo = await neWAuncio.save();
-         res.json({
-             id: novo.id
-         });
+         
      },
-
-    
-
-    getItem: async (req, res) => {
-
-    }
+     getCategoria: async (req, res) => {
+        let cat = await Categoria?.find()
+        let categoria = [];
+        for (let i in cat) {
+            categoria.push({
+                ...cat[i]._doc,
+                img:` ${process.env.BASE}/assets/${cat[i].slogan}.jpg`.name
+                
+            });
+        }
+        res.json({ categoria});
+    },
 
     
 

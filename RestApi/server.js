@@ -19,7 +19,7 @@ mongoose.connection.on('error', err => console.log('erro de conexao'))
 server.use(cors())
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
-
+server.use(express.static('public'))
 //fileupload
 server.use(fileupload());
 server.use('/', apiRouter) // inicializando com minha rota raiz

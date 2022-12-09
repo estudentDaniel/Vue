@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = new mongoose.Schema({
     name: String,
-    titulo: String
+    slogan: String
  })
 
 const modelName = 'categoria'

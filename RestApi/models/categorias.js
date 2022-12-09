@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 const Schema = new mongoose.Schema({
-    name: {type: 'string'},
-    titulo: {type: 'String'}
+    name: String,
+    titulo: String
  })
 
 const modelName = 'categoria'

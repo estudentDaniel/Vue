@@ -18,7 +18,7 @@ router.post('/user/signin',AuthValidator.signin, AuthController.signin)//atentic
 router.post('/user/signup',AuthValidator.signup, AuthController.signup)//cria novo
 
 //Info USER, rota, private, middleware e  token
-router.get('/user/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado
+router.get('/users/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado
 router.put('/user/use',UserValidator.editAction, UserController.editAction) //editAction
 
 //categoria

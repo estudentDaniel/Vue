@@ -11,21 +11,22 @@ module.exports = {
     },
     info: async (req, res) => {
 
-        let users = await User.find();
-        res.json({ users });
-        const user = await User.findOne({ token: token })
-    //     //indentificar usuario pelo token
-    //     let token = req.query.token //buscando pela query por get
-    //     //encontre um token 
-    //     const user = await User.findOne({ token: token })
-    //    // const user = await User.findOne(token);
-    //     const state = await State.findById(user.state) //mostar anuncio
-    //     //const anuncio = await anuncioads.
-    //     res.json({
-    //         name: user.name,
-    //         email: user.email,
-    //         states: user.states,
-    //      })
+        // let users = await User.find();
+        // res.json({ users });
+        // const user = await User.findOne({ token: token })
+        
+     //indentificar usuario pelo token
+     let token = req.query.token //buscando pela query por get
+     //encontre um token 
+     const user = await User.findOne({ token: token })
+     //const state = await State.findById(user.id)
+    // const user = await User.findOne(token);
+     //const anuncio = await anuncioads.
+     res.json({
+         name: user.name,
+         email: user.email,
+         //states: user.states
+      })
 
     },
     editAction: async (req, res) => {
@@ -47,26 +48,28 @@ module.exports = {
                 
                 const emailCheck = await User.findOne({email: data.email})
                 if (emailCheck){
-                    res.json({erros: 'irmao esse email ja atualizo '})
+                    res.json({erros: 'Email atualizo '})
+                    return;
                 }
                 update.email = data.email
             }
-            if (data.states){
-                // vefirica se veio object id se nao sai fora que é laço irmao
-                if (mongoose.Types.ObjectId.isValid(data.states)){
-                    const stateCheck = await User.findOne({state: data.states})
-                    if (!stateCheck){
-                        res.json({erros: 'Estado nao existe'})
+             if (data.states) {
+                if (mongoose.Types.ObjectId.isValid(data.id)) {
+                    const statesCheck = await State.findById(data.id);
+                    if (!statesCheck) {
+                        res.json({ error: 'Estado não existe' });
+                        return;
                     }
-                    update.states = data.states
-                }else{
-                    res.json({erros: 'invalido of estados'})
-                }
+                updates.states = data.states;
+                    } else {
+                        res.json({ error: 'Código do estado em formato inválido' });
+                        return;
+                    }
             }
             if (data.passwordHash){
+                
                 update.passwordHash = await bcrypt.hash(data.passwordHash, 10);   
             }
-
             //aguarda meu brother  que vou te atualizo
             await User.findByIdAndUpdate({token: data.token}, {$set: update});
 

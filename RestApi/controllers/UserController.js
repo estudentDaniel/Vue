@@ -70,5 +70,9 @@ module.exports = {
 
 
     },
+    delete: async (req, res) => {
+        let data = await User.deleteOne({id: req.params.id});
+        res.json({data: data});
+    }
     
 }

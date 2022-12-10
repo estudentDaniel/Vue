@@ -86,8 +86,5 @@ module.exports = {
         await NewUser.save()
         
         
-    },
-    editAction: async (req, res)=>{
-        
     }
 }

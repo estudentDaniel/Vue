@@ -12,22 +12,20 @@ const UserValidator = require('../validator/UserValidator')
 
 //Info estado
 router.get('/states', UserController.getStates)
-
 //login USER
 router.post('/user/signin',AuthValidator.signin, AuthController.signin)//atentica
 router.post('/user/signup',AuthValidator.signup, AuthController.signup)//cria novo
-
 //Info USER, rota, private, middleware e  token
-router.get('/users/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado
+router.get('/users/use', AuthMiddel.private, UserController.info) // SO acessa quem for cadastrado/adm
 router.put('/user/use',UserValidator.editAction, UserController.editAction) //editAction
-
+//exclusão so com id!
+router.delete('/id:',UserController.delete)
 //categoria
 router.get('/categorias', AnuncioController.getCategoria)
-
 //auncio
 router.post('/anuncio/add', AnuncioController.addAnuncio)
 router.get('/list', AnuncioController.getList)
-
+//Deve se implementado algo mais
 
 module.exports = router
 

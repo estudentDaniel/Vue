@@ -11,21 +11,14 @@ module.exports = {
     },
     info: async (req, res) => {
 
-        // let users = await User.find();
-        // res.json({ users });
-        // const user = await User.findOne({ token: token })
-        
      //indentificar usuario pelo token
      let token = req.query.token //buscando pela query por get
      //encontre um token 
      const user = await User.findOne({ token: token })
-     //const state = await State.findById(user.id)
-    // const user = await User.findOne(token);
-     //const anuncio = await anuncioads.
      res.json({
          name: user.name,
          email: user.email,
-         //states: user.states
+       
       })
 
     },

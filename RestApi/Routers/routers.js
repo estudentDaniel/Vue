@@ -26,10 +26,8 @@ router.get('/categorias', AnuncioController.getCategoria)
 
 //auncio
 router.post('/anuncio/add', AnuncioController.addAnuncio)
-//router.get('/user/list', AnuncioController.getList)
-//router.post('/user/item', AnuncioController.getItem)
-//router.put('/user/:id', AnuncioController.editAction) //editAction
-//router.delete('/user/:id', AnuncioController.delete)
+router.get('/list', AnuncioController.getList)
+
 
 module.exports = router
 

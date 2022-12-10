@@ -23,7 +23,7 @@ router.delete('/id:',UserController.delete)
 //categoria
 router.get('/categorias', AnuncioController.getCategoria)
 //auncio
-router.post('/anuncio/add', AnuncioController.addAnuncio)
+router.post('/addAnuncio', AnuncioController.addAnuncio)
 router.get('/list', AnuncioController.getList)
 //Deve se implementado algo mais
 

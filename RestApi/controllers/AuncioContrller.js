@@ -1,15 +1,15 @@
+const Anuncio = require('../models/anuncio');
 const Categoria = require('../models/categorias');
 const mongoose = require('mongoose');
 const { v4: uuid } = require('uuid');
 const jimp = require('jimp');
-const State = require('../models/estado');
 const User = require('../models/user');
-const Anuncio = require('../models/anuncio');
+
 
 
 const addImage = async (buffer) => {
     let newName = `${uuid()}.jpg`;
-    let tmpImage = await jimp.read(buffer); //leu a imagem
+    let tmpImage = await jimp.read(buffer);
     tmpImage.cover(500, 500).quality(75).write(`./assets/${newName}`);
     return newName;
 }
@@ -18,7 +18,7 @@ module.exports = {
      
     addAnuncio: async (req, res) => {
   
-         let { titulo, preco,  token, categ, descricao, views } = req.query;
+         var { titulo, preco,  token, categ, descricao, views } = req.body;
 
          const user = await User.findOne({ token: token }).exec();
 
@@ -33,7 +33,7 @@ module.exports = {
             preco = 0;
          }
       
-        const anuncio = new Anuncio();   
+        var anuncio = new Anuncio();   
          anuncio.idUser = user._id;
          anuncio.Categoria = categ;
          anuncio.dateCreated = new Date();

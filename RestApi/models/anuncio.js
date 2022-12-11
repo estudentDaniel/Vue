@@ -2,10 +2,13 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise; //Configurações globais
 
 const modelShema = new mongoose.Schema({
-
+    idUser: String,
+    dateCreated:Date,
     titulo: String,
     preco: String,
     descricao: String,
+    views: Number,
+    images: [Object]
 
 });
 
